@@ -19,7 +19,10 @@
 
 package org.apache.log4j.spi;
 
-
+/**
+ * DefaultRepositorySelector
+ * 默认存储库选择器
+ */
 public class DefaultRepositorySelector implements RepositorySelector {
 
   final LoggerRepository repository;

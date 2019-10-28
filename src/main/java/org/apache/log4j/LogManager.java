@@ -36,6 +36,7 @@ import java.io.StringWriter;
 import java.io.PrintWriter;
 
 /**
+ * 日志管理器
  * Gets {@link Logger} instances and operates on the current {@link LoggerRepository}.
  * 
  * <p>
@@ -80,15 +81,20 @@ public class LogManager {
 
   static {
     // By default we use a DefaultRepositorySelector which always returns 'h'.
+      // 设置日志登记
     Hierarchy h = new Hierarchy(new RootLogger(Level.DEBUG));
+    //创建存储选择器
     repositorySelector = new DefaultRepositorySelector(h);
 
     /** Search for the properties file log4j.properties in the CLASSPATH.  */
+    //在类路径下查找log4j.properties是否存在
     String override =OptionConverter.getSystemProperty(DEFAULT_INIT_OVERRIDE_KEY,
 						       null);
 
     // if there is no default init override, then get the resource
     // specified by the user or the default config file.
+      //如果没有默认的init覆盖，则获取用户指定的资源
+      // 或默认的配置文件。
     if(override == null || "false".equalsIgnoreCase(override)) {
 
       String configurationOptionStr = OptionConverter.getSystemProperty(
@@ -125,6 +131,7 @@ public class LogManager {
       if(url != null) {
 	    LogLog.debug("Using URL ["+url+"] for automatic log4j configuration.");
         try {
+            //选择并进行配置
             OptionConverter.selectAndConfigure(url, configuratorClassName,
 					   LogManager.getLoggerRepository());
         } catch (NoClassDefFoundError e) {

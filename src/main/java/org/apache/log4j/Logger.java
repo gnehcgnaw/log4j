@@ -21,12 +21,15 @@ import org.apache.log4j.spi.LoggerFactory;
 
 
 /**
-  This is the central class in the log4j package. Most logging
-  operations, except configuration, are done through this class.
-
-  @since log4j 1.2
-
-  @author Ceki G&uuml;lc&uuml; */
+ *
+ * 这是log4j包中的中心类。除了配置之外，大多数日志操作都是通过这个类完成的。
+ * This is the central class in the log4j package. Most logging
+ * operations, except configuration, are done through this class.
+ *
+ * @since log4j 1.2
+ *
+ * @author Ceki G&uuml;lc&uuml;
+ */
 public class Logger extends Category {
 
   /**
@@ -41,6 +44,8 @@ public class Logger extends Category {
   }
 
   /**
+   *
+   * 创建一个Logger实例
    * Retrieve a logger named according to the value of the
    * <code>name</code> parameter. If the named logger already exists,
    * then the existing instance will be returned. Otherwise, a new

@@ -477,6 +477,7 @@ new PropertyConfigurator().doConfigure(inputStream,
 
 
   /**
+   * 读取配置文件
      Read configuration options from <code>properties</code>.
 
      See {@link #doConfigure(String, LoggerRepository)} for the expected format.
@@ -511,8 +512,9 @@ new PropertyConfigurator().doConfigure(inputStream,
 						     Level.ALL));
       LogLog.debug("Hierarchy threshold set to ["+hierarchy.getThreshold()+"].");
     }
-    
+    //配置根级别
     configureRootCategory(properties, hierarchy);
+    //配置日记记录工厂
     configureLoggerFactory(properties);
     parseCatsAndRenderers(properties, hierarchy);
 
@@ -578,6 +580,7 @@ new PropertyConfigurator().doConfigure(inputStream,
             }
         }
     }
+    //进行配置
     doConfigure(props, hierarchy);
   }
 

@@ -43,6 +43,7 @@ import org.apache.log4j.spi.ThrowableRendererSupport;
 import org.apache.log4j.spi.ThrowableRenderer;
 
 /**
+ * 日志登记管理
    This class is specialized in retrieving loggers by name and also
    maintaining the logger hierarchy.
 

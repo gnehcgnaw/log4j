@@ -537,7 +537,7 @@ configurator.doConfigure(inputStream, hierarchy);
    } else {
      configurator = new PropertyConfigurator();
    }
-
+    //进行配置
    configurator.doConfigure(url, hierarchy);
   }
 }
