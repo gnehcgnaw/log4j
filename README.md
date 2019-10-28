@@ -1,5 +1,3 @@
-# Java日志体系（二）log4j
-
 <a name="SQaUx"></a>
 # 1. 简介
 Log4j是一个由Java编写可靠、灵活的日志框架，是Apache旗下的一个开源项目。<br />使用Log4j，我们更加方便的记录了日志信息，它不但能控制日志输出的目的地，也能控制日志输出的内容格式；通过定义不同的日志级别，可以更加精确的控制日志的生成过程，从而达到我们应用的需求；这一切，都得益于一个灵活的配置文件，并不需要我们更改代码。<br />在[`https://mvnrepository.com/`](https://mvnrepository.com/)中可以查到，log4j1从2005年11月更新到2012年3月，后面就没再更新了，最新的依赖(May 26, 2012)<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/285619/1572184882999-08c83085-5a39-4f70-8582-440d98742e54.png#align=left&display=inline&height=380&name=image.png&originHeight=1146&originWidth=2252&search=&size=182881&status=done&width=746)
