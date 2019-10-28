@@ -187,6 +187,10 @@ public class Category implements AppenderAttachable {
 
 
   /**
+   * 醒日志对象唤起日志输出目的地Appender:进行日志打印
+   * 通过以下代码，我们可以发现，为了获得对应日志对象的Appender,会在每次获取之前都加上synchronized同步锁。
+   * 无论多少个线程进行请求，到此处都需要进行获取锁的操作，才可以进行日志的打印。这也就是说，线程越多，并发越大，
+   * 此处的锁的竞争越激烈，进而导致系统性能的降低。
      Call the appenders in the hierrachy starting at
      <code>this</code>.  If no appenders could be found, emit a
      warning.
@@ -199,9 +203,10 @@ public class Category implements AppenderAttachable {
   public
   void callAppenders(LoggingEvent event) {
     int writes = 0;
-
+    //遍历日志对象集合
     for(Category c = this; c != null; c=c.parent) {
-      // Protected against simultaneous call to addAppender, removeAppender,...
+      // Protected against simultaneous call to addAppender, removeAppender,..
+        // Category是Logger的父类，此处的c就是请求的日志对象本身：
       synchronized(c) {
 	if(c.aai != null) {
 	  writes += c.aai.appendLoopOnAppenders(event);
